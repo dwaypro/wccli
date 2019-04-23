@@ -1,0 +1,17 @@
+{
+  "name": "wccli",
+  "version": "1.0.1",
+  "description": "Creates manages and builds web component projects.",
+  "main": "./lib/generate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin":{
+    "wccli": "./bin/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^13.2.2"
+  }
+}
