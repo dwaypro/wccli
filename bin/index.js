@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const yargs = require("yargs");
-const cli = require("../lib/generate");
-
+const generate = require("../lib/generate");
+const newProject = require("../lib/new");
 // Customize yargs version
 yargs.version('1.1.0')
 
@@ -13,7 +13,17 @@ yargs.command({
     aliases: ['g', 'gen'],
     builder: (yargs) => yargs.default('value', 'new_component'),
     handler: function (argv) {
-        cli.generate(argv.value);
+        generate.generate(argv.value);
+    }
+})
+
+yargs.command({
+    command: 'new [value]',
+    describe: 'Generate a new web component project', 
+    aliases: ['n'],
+    builder: (yargs) => yargs.default('value', 'new_project'),
+    handler: function(argv){
+        newProject.newProject(argv.value);
     }
 })
 
