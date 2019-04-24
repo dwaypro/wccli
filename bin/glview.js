@@ -27,6 +27,5 @@ class BoilerPlate extends HTMLElement {
     
     customElements.define('prx-boiler-plate', BoilerPlate);
     
-    export {BoilerPlate}
+export {BoilerPlate}
     
-}
