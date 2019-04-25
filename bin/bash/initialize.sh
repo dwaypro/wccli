@@ -1,1 +1,1 @@
-git clone https://github.com/dwaypro/cs.git
+git clone https://github.com/dwaypro/projectconfig.git
