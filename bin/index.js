@@ -17,6 +17,9 @@ yargs.command({
     }
 })
 
+/**
+ * Command that generates a new webcomponent project that bundles a new webpack project and starts the server
+ */
 yargs.command({
     command: 'new [value]',
     describe: 'Generate a new web component project', 
@@ -27,5 +30,3 @@ yargs.command({
     }
 })
 
-
-console.log(yargs.argv)

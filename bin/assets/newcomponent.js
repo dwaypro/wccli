@@ -1,4 +1,4 @@
-class Glview extends HTMLElement {
+class Test extends HTMLElement {
 
     constructor() {
         super();
@@ -8,7 +8,8 @@ class Glview extends HTMLElement {
         });
 
         const template = document.createElement('template');
-        template.innerHTML = ${template3}
+        template.innerHTML = ``
+
         shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
@@ -21,10 +22,8 @@ class Glview extends HTMLElement {
     }
 }
 
-customElements.define('glview', Glview)
+customElements.define('test', Test);
 
-export {Glview}
-
-
+export {Test}
             
         

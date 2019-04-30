@@ -1,0 +1,1 @@
+asset files serve as templates/schematics for commands to generate boilerplate code. Perhaps in the future, they can be downloaded from a server.
