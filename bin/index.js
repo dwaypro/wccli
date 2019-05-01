@@ -4,7 +4,7 @@ const yargs = require("yargs");
 const generate = require("../lib/generate");
 const newProject = require("../lib/new");
 // Customize yargs version
-yargs.version('1.1.0')
+// yargs.version('1.1.0')
 
 // generate command for creating new component.
 yargs.command({
@@ -18,7 +18,7 @@ yargs.command({
 })
 
 /**
- * Command that generates a new webcomponent project that bundles a new webpack project and starts the server
+ * Command that generates a new webcomponent project that bundles a new webpack project and starts the
  */
 yargs.command({
     command: 'new [value]',
@@ -28,5 +28,4 @@ yargs.command({
     handler: function(argv){
         newProject.newProject(argv.value);
     }
-})
-
+}).argv
