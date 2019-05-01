@@ -1,5 +1,5 @@
 {
-  "name": "wccli",
+  "name": "webcomponentcli",
   "version": "1.0.1",
   "description": "Creates manages and builds web component projects.",
   "main": "./lib/generate.js",
@@ -9,6 +9,7 @@
   "bin": {
     "wbc": "./bin/index.js"
   },
+  "preferGlobal": true,
   "author": "",
   "license": "ISC",
   "dependencies": {
