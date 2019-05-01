@@ -1,17 +1,9 @@
 # Web Component CLI
 
-# Installation (comming soon)
+# Installation
 
 ```
-npm install -g wccli
-```
-# for now...
-
-```
-git clone https://github.com/dwaypro/wccli.git
-cd into root
-npm install -g ./
-
+npm install -g webcomponentcli
 ```
 
 # Available Commands
