@@ -1,6 +1,6 @@
 {
   "name": "webcomponentcli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Creates manages and builds web component projects.",
   "main": "./lib/generate.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "preferGlobal": true,
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "ncp": "^2.0.0",
     "request": "^2.88.0",
