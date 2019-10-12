@@ -1,29 +1,31 @@
 
-import testercompHTML from "./componentClassName.html";
-import testercompCSS from "./componentClassName.css";
-Vue.component(wc-testercomp, {
-    store,
-    template: `<style>${testercompCSS}</style>${testercompHTML}`,
-    filters: {
-        
-    },
-    data: function() {
-    
-    },
-    computed: Vuex.mapState({
-        
-    }),
-    methods: {
-        
-    },
-    watch: {
-        
-    },
-    components: {
-        
-    },
-    mounted: function() {
-    
-    },
-});
+import TesterCompHTML from "./TesterComp.html"
+import TesterCompCSS from "./TesterComp.css"
 
+class TesterComp extends HTMLElement {
+
+    constructor() {
+        super();
+
+        const shadowRoot = this.attachShadow({
+            mode: `open`
+        });
+
+        const template = document.createElement(`template`);
+        template.innerHTML = `<style>${TesterCompCSS}</style>${TesterCompHTML}`
+
+        shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+
+
+    attributeChangedCallback(name, oldValue, newValue) {
+
+    }
+
+    connectedCallback() {
+    }
+}
+
+customElements.define(`wc-TesterComp`, TesterComp);
+
+export {TesterComp}

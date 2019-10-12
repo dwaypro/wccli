@@ -29,6 +29,19 @@ class ${componentClassName} extends HTMLElement {
     }
 
     connectedCallback() {
+        connectedCallback() {
+
+            var appInitialized = this.appInitialized;
+            if(!appInitialized){
+                var instance = this;
+                this.setAppInitialized(true);
+               
+            }
+        }
+    
+        setAppInitialized(boolean){
+            this.appInitialized = boolean;
+        }
     }
 }
 

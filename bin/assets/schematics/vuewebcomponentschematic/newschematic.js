@@ -29,9 +29,11 @@ class ${componentClassName} extends HTMLElement {
     }
 
     connectedCallback() {
-        var instance = this;
+
         var appInitialized = this.appInitialized;
         if(!appInitialized){
+            this.setAppInitialized(true);
+            var instance = this;
             this.vueArea = new Vue({
                 el: this.shadowRoot.querySelector('#vueArea'),
                 data: {
@@ -44,7 +46,7 @@ class ${componentClassName} extends HTMLElement {
         }
     }
 
-    appInitialized(boolean){
+    setAppInitialized(boolean){
         this.appInitialized = boolean;
     }
 }

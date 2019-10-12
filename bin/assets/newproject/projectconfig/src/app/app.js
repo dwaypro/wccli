@@ -32,6 +32,16 @@ class App extends HTMLElement {
     }
 
     connectedCallback() {
+        var appInitialized = this.appInitialized;
+
+        if(!appInitialized){
+            this.setAppInitialized(true);
+            
+        }
+    }
+
+    appInitialized(boolean){
+        this.appInitialized = boolean;
     }
 }
 
