@@ -11,8 +11,22 @@ yargs.command({
     command: 'generate [value]',
     describe: 'Generate a new web component file',
     aliases: ['g', 'gen'],
-    builder: (yargs) => yargs.default('value', 'new_component'),
+    // (yargs) => yargs.default('value', 'new_component')
+    builder: {
+        vc: {
+            describe: 'Generates HTML5 Web Component with Vue enabled within the Shadow Dom',
+            type: 'boolean'
+        },
+        v: {
+            describe: 'Generates stand alone vue component',            
+            type: 'boolean'
+        }
+    },
+    option:{
+
+    },
     handler: function (argv) {
+        console.log('argv', argv);
         generate.generate(argv.value);
     }
 })

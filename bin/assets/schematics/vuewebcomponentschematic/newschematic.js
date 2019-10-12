@@ -26,6 +26,23 @@ function newComponentSchematic(componentClassName, options){
         }
     
         connectedCallback() {
+            var instance = this;
+            var appInitialized = this.appInitialized;
+            if(!appInitialized){
+                this.vueArea = new Vue({
+                    el: this.shadowRoot.querySelector('#vueArea'),
+                    data: {
+
+                    },
+                    methods: {
+
+                    }
+                })
+            }
+        }
+
+        appInitialized(boolean){
+            this.appInitialized = boolean;
         }
     }
     
