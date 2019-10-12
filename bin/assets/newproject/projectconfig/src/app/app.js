@@ -1,3 +1,5 @@
+import appHTML from "./app.html";
+import appCSS from "./app.css";
 class App extends HTMLElement {
 
     constructor() {
@@ -9,19 +11,10 @@ class App extends HTMLElement {
 
         const template = document.createElement('template');
         template.innerHTML = `
-            <div id="header">
-                <image></image>
-                <h1>WC CLI!</h1>
-            </div>
-            <div>
-                <ul>
-                    <li><a>documentation</a></li>
-                    <li><a>news</a></li>
-                    <li><a>community</a></li>
-                </ul>
-            </div>
-            
-
+        <style>
+            ${appCSS}
+        </style>
+            ${appHTML}                      
         `
         shadowRoot.appendChild(template.content.cloneNode(true));
     }
@@ -36,7 +29,7 @@ class App extends HTMLElement {
 
         if(!appInitialized){
             this.setAppInitialized(true);
-            
+
         }
     }
 

@@ -23,6 +23,25 @@ class TesterComp extends HTMLElement {
     }
 
     connectedCallback() {
+
+        var appInitialized = this.appInitialized;
+        if(!appInitialized){
+            this.setAppInitialized(true);
+            var instance = this;
+            this.vueArea = new Vue({
+                el: this.shadowRoot.querySelector(`#vueArea`),
+                data: {
+
+                },
+                methods: {
+
+                }
+            })
+        }
+    }
+
+    setAppInitialized(boolean){
+        this.appInitialized = boolean;
     }
 }
 
