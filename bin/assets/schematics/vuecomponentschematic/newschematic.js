@@ -1,40 +1,50 @@
 function newComponentSchematic(componentClassName, options){
-    var innerHTMLSTRING = `<style>${componentClassName}CSS</style>${componentClassNameHTML}`;
+    var cssInterpolator = "${" + componentClassName + "CSS}"
+    var htmlInterpolator = "${" + componentClassName + "HTML}"
+    var innerHTMLSTRING = `'<style>${cssInterpolator}</style>${htmlInterpolator}'`;
 
     return `
-    import ${componentClassName}HTML from "./${componentClassName}.html"
-    import ${componentClassName}CSS from "./${componentClassName}.css"
+import ${componentClassName}HTML from "./componentClassName.html";
+import ${componentClassName}CSS from "./componentClassName.css";
+Vue.component(wc-${componentClassName.toLowerCase()}, {
+    store,
+    template: ${innerHTMLSTRING},
+    filters: {
+        
+    },
+    data: function() {
     
-    class ${componentName} extends HTMLElement {
+    },
+    computed: Vuex.mapState({
+        
+    }),
+    methods: {
+        
+    },
+    watch: {
+        
+    },
+    components: {
+        
+    },
+    mounted: function() {
+    
+    },
+});
 
-        constructor() {
-            super();
-    
-            const shadowRoot = this.attachShadow({
-                mode: 'open'
-            });
-    
-            const template = document.createElement('template');
-            template.innerHTML = ${innerHTMLSTRING}
-    
-            shadowRoot.appendChild(template.content.cloneNode(true));
-        }
-    
-    
-        attributeChangedCallback(name, oldValue, newValue) {
-    
-        }
-    
-        connectedCallback() {
-        }
-    }
-    
-    customElements.define('prx-${componentClassName}', ${componentClassName});
-    
-    export {${componentClassName}}`    
+`    
 }
-            
+
 module.exports={
     newComponentSchematic:newComponentSchematic
 }
-   
+
+
+
+
+
+
+
+
+
+

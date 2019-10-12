@@ -1,6 +1,6 @@
 {
   "name": "webcomponentcli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Creates manages and builds web component projects.",
   "main": "./lib/generate.js",
   "scripts": {

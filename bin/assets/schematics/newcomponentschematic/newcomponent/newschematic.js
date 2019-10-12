@@ -32,7 +32,7 @@ class ${componentClassName} extends HTMLElement {
     }
 }
 
-customElements.define('crd-${componentClassName}', ${componentClassName});
+customElements.define('wc-${componentClassName}', ${componentClassName});
 
 export {${componentClassName}}`    
 }
