@@ -34,3 +34,7 @@ function newComponentSchematic(componentClassName, options){
     export {${componentClassName}}`    
 }
             
+module.exports={
+    newComponentSchematic:newComponentSchematic
+}
+   

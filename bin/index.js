@@ -27,7 +27,7 @@ yargs.command({
     },
     handler: function (argv) {
         console.log('argv', argv);
-        generate.generate(argv.value);
+        generate.generate(argv.value, argv);
     }
 })
 
