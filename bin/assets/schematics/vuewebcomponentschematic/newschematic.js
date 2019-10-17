@@ -29,7 +29,6 @@ class ${componentClassName} extends HTMLElement {
     }
 
     connectedCallback() {
-
         var appInitialized = this.appInitialized;
         if(!appInitialized){
             this.setAppInitialized(true);

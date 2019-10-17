@@ -29,8 +29,6 @@ class ${componentClassName} extends HTMLElement {
     }
 
     connectedCallback() {
-        connectedCallback() {
-
             var appInitialized = this.appInitialized;
             if(!appInitialized){
                 var instance = this;
@@ -42,7 +40,6 @@ class ${componentClassName} extends HTMLElement {
         setAppInitialized(boolean){
             this.appInitialized = boolean;
         }
-    }
 }
 
 customElements.define('wc-${componentClassName}', ${componentClassName});
