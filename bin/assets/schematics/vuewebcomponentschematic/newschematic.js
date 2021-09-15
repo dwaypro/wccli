@@ -8,7 +8,7 @@ function newComponentSchematic(componentClassName, options){
 import ${componentClassName}HTML from "./${componentClassName}.html"
 import ${componentClassName}CSS from "./${componentClassName}.css"
 
-class ${componentClassName} extends HTMLElement {
+class ${componentClassName[0].toUpperCase() + componentClassName.slice(1)} extends HTMLElement {
 
     constructor() {
         super();
