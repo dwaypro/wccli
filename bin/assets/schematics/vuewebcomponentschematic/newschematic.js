@@ -3,12 +3,13 @@ function newComponentSchematic(componentClassName, options){
     var htmlInterpolator = "${" + componentClassName + "HTML}"
     var innerHTMLSTRING = `'<style>${cssInterpolator}</style>${htmlInterpolator}'`;
 
+    const className = componentClassName[0].toUpperCase() + componentClassName.slice(1);
 
     return `
 import ${componentClassName}HTML from "./${componentClassName}.html"
 import ${componentClassName}CSS from "./${componentClassName}.css"
 
-class ${componentClassName[0].toUpperCase() + componentClassName.slice(1)} extends HTMLElement {
+class ${className} extends HTMLElement {
 
     constructor() {
         super();
@@ -50,9 +51,9 @@ class ${componentClassName[0].toUpperCase() + componentClassName.slice(1)} exten
     }
 }
 
-customElements.define('wc-${componentClassName}', ${componentClassName});
+customElements.define('wc-${componentClassName}', ${className});
 
-export {${componentClassName}}`    
+export {${className}}`    
 }
 
 module.exports={
