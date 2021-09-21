@@ -1,13 +1,6 @@
-function newComponentSchematic(componentClassName, options){
-    var cssInterpolator = "${" + componentClassName + "CSS}"
-    var htmlInterpolator = "${" + componentClassName + "HTML}"
-    var innerHTMLSTRING = `'<style>${cssInterpolator}</style>${htmlInterpolator}'`;
 
-    const className = componentClassName[0].toUpperCase() + componentClassName.slice(1);
-
-    return `
-import ${componentClassName}HTML from "./${componentClassName}.html"
-import ${componentClassName}CSS from "./${componentClassName}.css"
+import mynewcomponentHTML from "./mynewcomponent.html"
+import mynewcomponentCSS from "./mynewcomponent.css"
 /*
  *	Property of: PetroleumRx, Inc. - 424 East Southern Avenue, Suite 101 Tempe, Arizona 85282
  *	
@@ -33,17 +26,17 @@ import ${componentClassName}CSS from "./${componentClassName}.css"
   * @returns 
   */
  
-class ${className} extends HTMLElement {
+class Mynewcomponent extends HTMLElement {
 
     constructor() {
         super();
 
         const shadowRoot = this.attachShadow({
-            mode: 'open'
+            mode: `open`
         });
 
-        const template = document.createElement('template');
-        template.innerHTML = ${innerHTMLSTRING}
+        const template = document.createElement(`template`);
+        template.innerHTML = `<style>${mynewcomponentCSS}</style>${mynewcomponentHTML}`
 
         shadowRoot.appendChild(template.content.cloneNode(true));
     }
@@ -59,7 +52,7 @@ class ${className} extends HTMLElement {
             this.setAppInitialized(true);
             var instance = this;
             this.vueArea = new Vue({
-                el: this.shadowRoot.querySelector('#vueArea'),
+                el: this.shadowRoot.querySelector(`#vueArea`),
                 data: {
 
                 },
@@ -75,13 +68,6 @@ class ${className} extends HTMLElement {
     }
 }
 
-customElements.define('wc-${componentClassName}', ${className});
+customElements.define(`wc-mynewcomponent`, Mynewcomponent);
 
-export {${className}}`    
-}
-
-module.exports={
-    newComponentSchematic:newComponentSchematic
-}
-
-   
+export {Mynewcomponent}
