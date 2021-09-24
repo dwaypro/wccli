@@ -3,7 +3,10 @@ const { exec } = require('child_process');
 const fs = require('fs');
 const http = require('http');
 const webpack = require('webpack');
-const componentName = path.basename(__dirname);
+
+
+const componentName = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.dirname(filename)) : path.basename(__dirname);
+const componentDir = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.join(__dirname, '../../')) : path.basename(path.join(__dirname));
 // http://192.168.10.50:3094/
 const hostName = "localhost";
 const port = 3094;
@@ -41,6 +44,7 @@ module.exports = {
           console.log('build finished!');
           const payload = JSON.stringify({
             "componentName": componentName,
+            "componentDir": componentDir,
             "buildFile": fs.readFileSync('./dist/main.js', encoding)
           });
 
@@ -55,7 +59,7 @@ module.exports = {
             }
           }
 
-          const req = http.request(options, (res) => {            
+          const req = http.request(options, (res) => {
             process.stdout.write(' Body: ');
             res.pipe(process.stdout);
             res.on('end', () => { console.log('\n end') });
