@@ -3,6 +3,7 @@
 const yargs = require("yargs");
 const generate = require("../lib/generate");
 const newProject = require("../lib/new");
+const update = require("../lib/update");
 // Customize yargs version
 // yargs.version('1.1.0')
 
@@ -29,6 +30,15 @@ yargs.command({
         console.log('argv', argv);
         generate.generate(argv.value, argv);
     }
+})
+
+yargs.command({
+    command: 'update [value]',
+    describe: 'Updates index.html and webpackconfig files',
+    aliases: ['up'],
+   handler: function(argv){
+       update.update(argv.value, argv);
+   }
 })
 
 /**

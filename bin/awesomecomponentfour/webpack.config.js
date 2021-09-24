@@ -12,7 +12,7 @@ const fileName = "main.js";
 const contentBase = "./dist";
 const encoding = "utf-8"
 const buildRoute = "/build";
-
+// stuffffff...
 module.exports = {
   mode: 'development',
   entry: { app: './src/index.js' },
