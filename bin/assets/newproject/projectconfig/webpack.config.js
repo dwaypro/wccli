@@ -5,7 +5,7 @@ const http = require('http');
 const webpack = require('webpack');
 
 
-const componentName = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.dirname(filename)) : path.basename(__dirname);
+const componentName = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.dirname(__dirname)) : path.basename(__dirname);
 const componentDir = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.join(__dirname, '../../')) : path.basename(path.join(__dirname));
 // http://192.168.10.50:3094/
 const hostName = "localhost";
