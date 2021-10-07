@@ -7,8 +7,7 @@ const webpack = require('webpack');
 
 const componentName = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.dirname(__dirname)) : path.basename(__dirname);
 const componentDir = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.join(__dirname, '../../')) : path.basename(path.join(__dirname));
-// http://192.168.10.50:3094/
-const hostName = "localhost";
+const remoteServer = "192.168.10.50";
 const port = 3094;
 const updateRoute = "/updateComponent";
 const fileName = "main.js";
@@ -39,6 +38,7 @@ module.exports = {
         exec('npm run build', (err, stdout, stderr) => {
           // handle errors... 
           if (err) {
+            console.log("🚀 ~ file: webpack.config.js ~ line 41 ~ exec ~ err", err)
           }
 
           console.log('build finished!');
@@ -50,7 +50,7 @@ module.exports = {
 
           const options = {
             method: 'POST',
-            hostname: hostName,
+            hostname: remoteServer,
             port: port,
             path: updateRoute,
             headers: {
