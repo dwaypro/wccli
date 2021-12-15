@@ -8,12 +8,14 @@ const webpack = require('webpack');
 const componentName = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.dirname(__dirname)) : path.basename(__dirname);
 const componentDir = path.basename(__dirname) === "webcomponentworkbench" ? path.basename(path.join(__dirname, '../../')) : path.basename(path.join(__dirname));
 const remoteServer = "192.168.10.50";
+// const remoteServer = "localhost";
 const port = 3094;
 const updateRoute = "/updateComponent";
 const fileName = "main.js";
 const contentBase = "./dist";
-const encoding = "utf-8"
+const encoding = "utf-8";
 const buildRoute = "/build";
+const getNewIndexRoute = "/indexOctane";
 
 module.exports = {
   mode: 'development',
@@ -70,6 +72,32 @@ module.exports = {
           req.end(payload);
         });
       });
+
+      app.get(getNewIndexRoute, (req, res) => {
+        // res.text("getting new index file...");
+        res.json({ data: "getting new index file..." });
+        const options = {
+          method: 'GET',
+          hostname: remoteServer,
+          port: port,
+          path: getNewIndexRoute,
+          headers: {
+            'Content-Type': 'text/html; charset=UTF-8',
+          }
+        }
+        const indexReq = http.request(options, (res2) => {
+          if (res2) {
+            process.stdout.write(' Body: ');
+            res2.pipe(fs.createWriteStream('./dist/index.html'));
+            console.log('inside callback');
+            res2.on('end', () => { console.log('\n end') });
+          }
+        })
+        indexReq.on('error', (err) => console.log('Error: ', err));
+        indexReq.on('response', (res) => {
+        })
+        indexReq.end();
+      })
     },
   },
   plugins: [
